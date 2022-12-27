@@ -6,7 +6,7 @@ local Window = Library.CreateLib("SpezZs", "BloodTheme")
 
 
     MainSection:NewButton("Back/Front Flip", "Makes you do gymnastics", function()
-        loadstring(game:HttpGet('https://pastebin.com/raw/7wDcPtLk'))()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/modderongxmes/SpezZsMenu/main/Flip'))()
     end)
 
     MainSection:NewToggle("Super-Human", "go fast and jump high", function(state)
@@ -24,7 +24,7 @@ local Window = Library.CreateLib("SpezZs", "BloodTheme")
     end)
 
     MainSection:NewButton("INFjump", "gives u infinte jumps", function()
-        loadstring(game:HttpGet(('https://pastebin.com/raw/iZXaVYi8'),true))()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/modderongxmes/SpezZsMenu/main/InfJump'),true))()
     end)
 
 
@@ -51,7 +51,7 @@ local Window = Library.CreateLib("SpezZs", "BloodTheme")
     local OtherSection = Other:NewSection("Other")
 
     OtherSection:NewButton("Chat Spoofer", "Lets you chat for other people", function()
-        loadstring(game:HttpGet(('https://pastebin.com/raw/djBfk8Li'),true))()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/modderongxmes/SpezZsMenu/main/Chat%20Spoofer'),true))()
     end)
 
     OtherSection:NewButton("Bypassed Fly", "bird mode", function()
@@ -88,7 +88,7 @@ local Window = Library.CreateLib("SpezZs", "BloodTheme")
     local BoogaBoogaSection = GUIS:NewSection("BoogaBooga")
 
     BoogaBoogaSection:NewButton("BoogaHub", "one of the best BoogaBoogaScript ever made", function()
-        loadstring(game:HttpGet(('https://pastebin.com/raw/8cP0Z9HQ'),true))()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/modderongxmes/SpezZsMenu/main/BoogaBooga'),true))()
     end)
 
     BoogaBoogaSection:NewButton("BoogaHub2", "i think this is also one of the best BoogaBoogaScript ever made", function()
