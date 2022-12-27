@@ -1,0 +1,5 @@
+local h = Instance.new("Made by SpezZsTeam")
+h.Parent = Workspace 
+h.Text = "Made by SpezZsTeam."
+wait(10)
+h:Remove()
