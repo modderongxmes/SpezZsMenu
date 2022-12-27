@@ -1,0 +1,129 @@
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+    vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+    wait(1)
+    vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+
+local LuckyBlock = Instance.new("ScreenGui")
+local Frame = Instance.new("ImageLabel")
+local title = Instance.new("TextLabel")
+local Frame_HUB = Instance.new("ImageLabel")
+local HUB = Instance.new("TextLabel")
+local Main = Instance.new("Frame")
+local LuckyBlock_2 = Instance.new("TextButton")
+local SuperBlock = Instance.new("TextButton")
+local GalaxyBlock = Instance.new("TextButton")
+local RainbowBlock = Instance.new("TextButton")
+local DiamondBlock = Instance.new("TextButton")
+local CopyDiscordServer = Instance.new("TextButton")
+local DiscordServer_box = Instance.new("TextBox")
+local lable_discord = Instance.new("TextLabel")
+local open_box = Instance.new("TextBox")
+local toBox = Instance.new("TextLabel")
+local Frame_2 = Instance.new("Frame")
+local close = Instance.new("ImageButton")
+ 
+--Properties:
+ 
+LuckyBlock.Name = "LuckyBlock"
+LuckyBlock.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+LuckyBlock.ResetOnSpawn = false
+ 
+Frame.Name = "Frame"
+Frame.Parent = LuckyBlock
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.ClipsDescendants = true
+Frame.Position = UDim2.new(0.304542094, 0, 0.326781332, 0)
+Frame.Size = UDim2.new(0, 525, 0, 300)
+Frame.Image = "rbxassetid://3570695787"
+Frame.ImageColor3 = Color3.fromRGB(0, 0, 0)
+Frame.ScaleType = Enum.ScaleType.Slice
+Frame.SliceCenter = Rect.new(100, 100, 100, 100)
+Frame.SliceScale = 0.120
+Frame.Active = true
+Frame.Draggable = true
+ 
+title.Name = "title"
+title.Parent = Frame
+title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundTransparency = 1.000
+title.Size = UDim2.new(0, 439, 0, 51)
+title.Font = Enum.Font.SourceSans
+title.Text = "SpezZs"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextSize = 28.000
+ 
+CopyDiscordServer.Name = "CopyDiscordServer"
+CopyDiscordServer.Parent = Frame
+CopyDiscordServer.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+CopyDiscordServer.BorderSizePixel = 0
+CopyDiscordServer.Position = UDim2.new(0.531428576, 0, 0.826666713, 0)
+CopyDiscordServer.Selectable = false
+CopyDiscordServer.Size = UDim2.new(0, 194, 0, 35)
+CopyDiscordServer.AutoButtonColor = false
+CopyDiscordServer.Font = Enum.Font.SourceSans
+CopyDiscordServer.Text = "CopyDiscordServer"
+CopyDiscordServer.TextColor3 = Color3.fromRGB(255, 255, 255)
+CopyDiscordServer.TextSize = 28.000
+ 
+DiscordServer_box.Name = "DiscordServer_box"
+DiscordServer_box.Parent = Frame
+DiscordServer_box.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+DiscordServer_box.BorderSizePixel = 0
+DiscordServer_box.Position = UDim2.new(0.531428576, 0, 0.709999979, 0)
+DiscordServer_box.Size = UDim2.new(0, 194, 0, 35)
+DiscordServer_box.ClearTextOnFocus = false
+DiscordServer_box.Font = Enum.Font.SourceSans
+DiscordServer_box.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+DiscordServer_box.PlaceholderText = "https://discord.gg/wS39k4H3jT"
+DiscordServer_box.Text = "https://discord.gg/wS39k4H3jT"
+DiscordServer_box.TextColor3 = Color3.fromRGB(255, 255, 255)
+DiscordServer_box.TextSize = 14.000
+ 
+lable_discord.Name = "lable_discord"
+lable_discord.Parent = Frame
+lable_discord.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+lable_discord.BackgroundTransparency = 1.000
+lable_discord.Position = UDim2.new(0.531428576, 0, 0.533333361, 0)
+lable_discord.Size = UDim2.new(0, 194, 0, 53)
+lable_discord.Font = Enum.Font.SourceSans
+lable_discord.Text = "--JOIN SpezZs DISCORD FOR MORE."
+lable_discord.TextColor3 = Color3.fromRGB(400, 40, 40)
+lable_discord.TextScaled = true
+lable_discord.TextSize = 28.000
+lable_discord.TextWrapped = true
+  
+Frame_2.Parent = Frame
+Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Frame_2.Position = UDim2.new(0.400000006, 0, 0.170000002, 0)
+Frame_2.Size = UDim2.new(0, 0, 0, 292)
+ 
+close.Name = "close"
+close.Parent = Frame
+close.BackgroundTransparency = 1.000
+close.Position = UDim2.new(0.90054822, 0, 0.00678133965, 0)
+close.Size = UDim2.new(0, 45, 0, 45)
+close.ZIndex = 2
+close.Image = "rbxassetid://3926305904"
+close.ImageRectOffset = Vector2.new(284, 4)
+close.ImageRectSize = Vector2.new(24, 24)
+ 
+ 
+----------------------------------------------------------------
+ 
+close.MouseButton1Click:connect(function()
+    Frame.Visible = false
+end)
+
+CopyDiscordServer.MouseButton1Down:connect(function()
+    setclipboard("https://discord.gg/wS39k4H3jT")
+    wait(1)
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Success!";
+        Text = "Copy Discord: https://discord.gg/wS39k4H3jT"; -- what the text says (ofc)
+        Duration = 5;
+    })
+end)
