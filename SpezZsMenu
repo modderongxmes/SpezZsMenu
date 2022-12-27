@@ -66,11 +66,11 @@ local Window = Library.CreateLib("SpezZs", "BloodTheme")
     local creditsSection = credits:NewSection("credits")
 
     creditsSection:NewButton("SpezZsTeam", "team : stikbig : modderongames : team", function()
-        loadstring(game:HttpGet(('https://pastebin.com/raw/NMdJdRdx'),true))()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/modderongxmes/SpezZsMenu/main/TeamCredits'),true))()
     end)
 
     creditsSection:NewButton("SpezZsDiscord", "Just Join It Plys", function()
-        loadstring(game:HttpGet(('https://pastebin.com/raw/sF7juCdK'),true))()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/modderongxmes/SpezZsMenu/main/Discord'),true))()
     end)
 
     --GUI'S
