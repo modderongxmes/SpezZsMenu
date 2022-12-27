@@ -1,0 +1,108 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("SpezZs", "BloodTheme")
+    -- MAIN
+    local Main = Window:NewTab("Main")
+    local MainSection = Main:NewSection("Main")
+
+
+    MainSection:NewButton("Back/Front Flip", "Makes you do gymnastics", function()
+        loadstring(game:HttpGet('https://pastebin.com/raw/7wDcPtLk'))()
+    end)
+
+    MainSection:NewToggle("Super-Human", "go fast and jump high", function(state)
+        if state then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+        else
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+        end
+    end)
+
+    MainSection:NewButton("Infinite Yield", "FE Admin Commands", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+    end)
+
+    MainSection:NewButton("INFjump", "gives u infinte jumps", function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/iZXaVYi8'),true))()
+    end)
+
+
+    --LOCAL PLAYER
+    local Player = Window:NewTab("Player")
+    local PlayerSection = Player:NewSection("Player")
+
+    PlayerSection:NewSlider("Walkspeed", "SPEED!!", 500, 16, function(s)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+    end)
+
+    PlayerSection:NewSlider("Jumppower", "JUMP HIGH!!", 350, 50, function(s)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    end)
+
+    PlayerSection:NewButton("Reset WS/JP", "Resets to all defaults", function()
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    end)
+
+
+    --Other
+    local Other = Window:NewTab("Other")
+    local OtherSection = Other:NewSection("Other")
+
+    OtherSection:NewButton("Chat Spoofer", "Lets you chat for other people", function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/djBfk8Li'),true))()
+    end)
+
+    OtherSection:NewButton("Bypassed Fly", "bird mode", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Nicuse/RobloxScripts/main/BypassedFly.lua"))() 
+
+        Fly(true)
+    end)
+    
+    
+    --credits
+    local credits = Window:NewTab("credits")
+    local creditsSection = credits:NewSection("credits")
+
+    creditsSection:NewButton("SpezZsTeam", "team : stikbig : modderongames : team", function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/NMdJdRdx'),true))()
+    end)
+
+    creditsSection:NewButton("SpezZsDiscord", "Just Join It Plys", function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/sF7juCdK'),true))()
+    end)
+
+    --GUI'S
+    local GUIS = Window:NewTab("GUIS")
+    local ArsenalSection = GUIS:NewSection("Arsenal")
+
+    ArsenalSection:NewButton("OwlHub", "OwlHub arsenalHack", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt'),true))()
+    end)
+
+    ArsenalSection:NewButton("DarkHub", "DarkHub arsenalHack", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Init'),true))()
+    end)
+
+    local BoogaBoogaSection = GUIS:NewSection("BoogaBooga")
+
+    BoogaBoogaSection:NewButton("BoogaHub", "one of the best BoogaBoogaScript ever made", function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/8cP0Z9HQ'),true))()
+    end)
+
+    BoogaBoogaSection:NewButton("BoogaHub2", "i think this is also one of the best BoogaBoogaScript ever made", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/YEs13421k/BOOGA-SCRIPT/main/Roblox%20Booga%20Booga%20Script'),true))()
+    end)
+
+    local LuckyBlockSection = GUIS:NewSection("LuckyBlock")
+
+    LuckyBlockSection:NewButton("CornHub", "one of the best LuckyBlockScript By CornHub", function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/xkHKZrYA'),true))()
+    end)
+
+    local JailBreakSection = GUIS:NewSection("JailBreak")
+
+    JailBreakSection:NewButton("JailBreak", "a good JailBreak script", function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/LbR3vWpg'),true))()
+    end)
