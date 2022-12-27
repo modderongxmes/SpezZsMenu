@@ -1,0 +1,676 @@
+local a = loadstring(game:HttpGet("https://pastebin.com/raw/F4647K32", true))()
+local b = game:GetService("Players").LocalPlayer;
+local c = b.Character.HumanoidRootPart;
+local d = b.Character.Humanoid;
+local e = game:GetService("RunService").Stepped;
+local f = b:GetMouse()
+b.CharacterAdded:Connect(function(g)
+	c = g:WaitForChild("HumanoidRootPart")
+	d = g:WaitForChild("Humanoid")
+end)
+a.options.underlinecolor = "rainbow"
+local h = a:CreateWindow("Guns")
+h:Button("Inf Ammo", function()
+	local i = {}
+	for j, k in pairs(getreg or debug.getregistry()) do
+		if typeof(k) == "table" then
+			table.insert(i, k)
+		end
+	end;
+	for j, l in pairs(i) do
+		pcall(function()
+			if l.Pistol ~= nil then
+				local m = l.Pistol;
+				m.MagSize = math.huge;
+				m.FireAuto = true;
+				m.FireFreq = 5000;
+				m.BulletSpread = 0;
+				m.BulletSpeed = 5000
+			end;
+			if l.Shotgun ~= nil then
+				local m = l.Shotgun;
+				m.MagSize = math.huge;
+				m.FireAuto = true;
+				m.FireFreq = 5000;
+				m.BulletSpread = 0;
+				m.BulletSpeed = 5000
+			end;
+			if l.RifleSWAT ~= nil then
+				local m = l.RifleSWAT;
+				m.MagSize = math.huge;
+				m.FireAuto = true;
+				m.FireFreq = 5000;
+				m.BulletSpread = 0;
+				m.BulletSpeed = 5000
+			end
+		end)
+	end
+end)
+local n = false;
+h:Button("Pistol", function()
+	n = true;
+	local o = {}
+	local p = game:GetService('Players').LocalPlayer.Character.Head.Position + Vector3.new(0, 2, 0)
+	local q = Instance.new('Part', workspace)
+	q.Anchored = true;
+	q.Position = p;
+	q.Size = Vector3.new(2, 2, 2)
+	q.CanCollide = false;
+	pcall(function()
+		for r, s in pairs(game:GetService('Workspace').Givers:GetChildren()) do
+			if s.Name == 'Station' then
+				for q, t in pairs(s:GetChildren()) do
+					if t:IsA('StringValue') and t.Value == 'Pistol' then
+						o.CFrame = s.CFrame;
+						o.Size = s.Size;
+						s.Size = Vector3.new(3, 3, 3)
+						s.CFrame = CFrame.new(p)
+						wait(7.5)
+						s.Size = o.Size;
+						s.CFrame = o.CFrame;
+						break
+					end
+				end
+			end
+		end
+	end)
+	q:Remove()
+	n = false
+end)
+local u = false;
+h:Button("Shotgun", function()
+	u = true;
+	local o = {}
+	local p = game:GetService('Players').LocalPlayer.Character.Head.Position + Vector3.new(0, 2, 0)
+	local q = Instance.new('Part', workspace)
+	q.Anchored = true;
+	q.Position = p;
+	q.Size = Vector3.new(2, 2, 2)
+	q.CanCollide = false;
+	pcall(function()
+		for r, s in pairs(game:GetService('Workspace').Givers:GetChildren()) do
+			if s.Name == 'Station' then
+				for q, t in pairs(s:GetChildren()) do
+					if t:IsA('StringValue') and t.Value == 'Shotgun' then
+						o.CFrame = s.CFrame;
+						o.Size = s.Size;
+						s.Size = Vector3.new(3, 3, 3)
+						s.CFrame = CFrame.new(p)
+						wait(7.5)
+						s.Size = o.Size;
+						s.CFrame = o.CFrame;
+						break
+					end
+				end
+			end
+		end
+	end)
+	q:Remove()
+	u = false
+end)
+local v = false;
+h:Button("Swat Rifle", function()
+	v = true;
+	local o = {}
+	local p = game:GetService('Players').LocalPlayer.Character.Head.Position + Vector3.new(0, 2, 0)
+	local q = Instance.new('Part', workspace)
+	q.Anchored = true;
+	q.Position = p;
+	q.Size = Vector3.new(2, 2, 2)
+	q.CanCollide = false;
+	pcall(function()
+		for r, s in pairs(game:GetService('Workspace').Givers:GetChildren()) do
+			if s.Name == 'Station' then
+				for q, t in pairs(s:GetChildren()) do
+					if t:IsA('StringValue') and t.Value == 'RifleSWAT' then
+						o.CFrame = s.CFrame;
+						o.Size = s.Size;
+						s.Size = Vector3.new(3, 3, 3)
+						s.CFrame = CFrame.new(p)
+						wait(7.5)
+						s.Size = o.Size;
+						s.CFrame = o.CFrame;
+						break
+					end
+				end
+			end
+		end
+	end)
+	q:Remove()
+	v = false
+end)
+local w = 50;
+function GetCarMain()
+	local x = game:GetService("Players").LocalPlayer.Name;
+	for j, y in pairs(workspace.Vehicles:GetChildren()) do
+		if y:FindFirstChild("Seat") and y:FindFirstChild("Engine") then
+			if y.Seat.PlayerName.Value == x then
+				return y.Engine, false
+			end
+		elseif y:FindFirstChild("Seat") and y:FindFirstChild("Model") then
+			if y.Seat.PlayerName.Value == x then
+				if y.Model:FindFirstChild("Body") then
+					return y.Model.Body, true
+				end
+			end
+		end
+	end
+end;
+function FlyPart(z, A)
+	local B = Instance.new("Folder")
+	B.Name = "Storage"
+	for j, C in pairs(z:GetChildren()) do
+		if C:IsA("BodyGyro") then
+			C.Parent = B
+		end
+	end;
+	local D = Instance.new("BodyPosition", z)
+	D.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+	D.Name = "Position"
+	local E = Instance.new("BodyGyro", z)
+	E.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+	E.Name = "Rotate"
+	workspace.CurrentCamera.CameraSubject = z;
+	local f = game:GetService("Players").LocalPlayer:GetMouse()
+	local F = 0;
+	local G = f.KeyDown:Connect(function(H)
+		if H == "w" then
+			if A then
+				F = w
+			else
+				F = tonumber("-"..tostring(w))
+			end
+		elseif H == "s" then
+			if A then
+				F = tonumber("-"..tostring(w))
+			else
+				F = w
+			end
+		end
+	end)
+	f.KeyUp:Connect(function(H)
+		if H == "w" then
+			F = 0
+		elseif H == "s" then
+			F = 0
+		end
+	end)
+	local I = {}
+	I.IsRunning = true;
+	I.Part = z;
+	I.Storage = B;
+	I.MT = G;
+	coroutine.resume(coroutine.create(function()
+		repeat
+			local J = workspace.CurrentCamera.CFrame;
+			local K = z.Position;
+			local L = (K - J.p).Magnitude;
+			D.Position = (J * CFrame.new(0, 0, tonumber("-"..tostring(L)) + F)).p + Vector3.new(0, 0.2225, 0)
+			E.CFrame = J;
+			wait()
+		until I.IsRunning == false or workspace.CurrentCamera.CameraSubject ~= z;
+		D:Remove()
+		E:Remove()
+		for j, M in pairs(I.Storage:GetChildren()) do
+			M.Parent = I.Part
+		end;
+		I.MT:Disconnect()
+		I.Storage:Remove()
+	end))
+	return I
+end;
+_G.TPC = false;
+local N = a:CreateWindow("Movement")
+N:Toggle("Speed", {
+	flag = "SpeedHacks"
+})
+N:Slider("Current Speed", {
+	flag = "SpeedCR",
+	min = 20,
+	max = 100
+}, function()
+end)
+N:Toggle("Gravity", {
+	flag = "Gravity"
+})
+N:Slider("Current Gravity", {
+	flag = "GravityCR",
+	min = 25,
+	max = 99
+}, function()
+end)
+N:Toggle("NoClip", {
+	flag = "NoClip"
+})
+N:Toggle("Inf Jump", {
+	flag = "InfJump"
+})
+N:Button("Car Fly", function()
+	if GetCarMain() ~= nil then
+		local O, A = GetCarMain()
+		local P = FlyPart(O, A)
+		if A then
+			repeat
+				wait()
+			until O.Parent.Parent.Seat.PlayerName.Value ~= game:GetService("Players").LocalPlayer.Name
+		else
+			repeat
+				wait()
+			until O.Parent.Seat.PlayerName.Value ~= game:GetService("Players").LocalPlayer.Name
+		end;
+		wait(0.1)
+		workspace.CurrentCamera.CameraSubject = d
+	end
+end)
+N:Slider("Fly Speed", {
+	flag = "SpeedCCR",
+	min = 50,
+	max = 200
+}, function()
+end)
+e:Connect(function()
+	w = N.flags.SpeedCCR
+end)
+N:Button("Inf Nitro", function()
+	b.PlayerGui.MainGui.Nitro.Name = "N-i-t-r-o"
+	b.PlayerGui.ProductGui.Nitro.Visible = false;
+	for j, Q in pairs(b.PlayerGui.ProductGui.Nitro:GetChildren()) do
+		Q.Visible = false
+	end
+end)
+game:GetService("RunService").RenderStepped:Connect(function()
+	if N.flags.SpeedHacks then
+		if d ~= nil then
+			d.WalkSpeed = N.flags.SpeedCR
+		end
+	end
+end)
+e:Connect(function()
+	if _G.TPC then
+		workspace.Gravity = 0
+	elseif N.flags.Gravity then
+		workspace.Gravity = N.flags.GravityCR
+	else
+		workspace.Gravity = 196.2
+	end
+end)
+e:Connect(function()
+	if N.flags.NoClip then
+		if b.Character ~= nil then
+			for j, z in pairs(b.Character:GetDescendants()) do
+				if z:IsA("BasePart") then
+					z.CanCollide = false
+				end
+			end
+		end
+	end
+end)
+f.KeyDown:Connect(function(H)
+	if H == " " and N.flags.InfJump and d ~= nil then
+		d:ChangeState('Jumping')
+		wait()
+		d:ChangeState('Seated')
+	end
+end)
+local R = {}
+R.Cage = CFrame.new(-292, 27, 296)
+R.Sell = CFrame.new(1768, 51, -1792)
+R.Jewl = CFrame.new(110, 118, 1305)
+R.Jewlrob = CFrame.new(125, 18, 1315)
+R.Bank = CFrame.new(30, 18, 790)
+R.Museum = CFrame.new(1077, 135, 1233)
+R.Jetpack = CFrame.new(1367, 170, 2581)
+R.Yard = CFrame.new(-1220, 18, -1760)
+R.CrimBase = CFrame.new(-229, 18, 1596)
+R.VolcanoBaseTop = CFrame.new(1561, 50, -1755)
+R.VolcanoBaseBottom = CFrame.new(1715, 18, -1691)
+R.PowerPlant = CFrame.new(704, 37, 2356)
+R.Helicopter1 = CFrame.new(-1144, 57, -1572)
+R.Helicopter2 = CFrame.new(721, 71, 1122)
+R.ControlTower = CFrame.new(94, 18, 1122)
+coroutine.resume(coroutine.create(function()
+	while wait() do
+		local S = {}
+		S.BankAdded = false;
+		S.TrainAdded = false;
+		if workspace.Banks:FindFirstChildOfClass("Model") then
+			local T = workspace.Banks:FindFirstChildOfClass("Model")
+			if T:FindFirstChild("Layout") then
+				local U = T.Layout;
+				if U:FindFirstChildOfClass("Model") then
+					local V = U:FindFirstChildOfClass("Model")
+					if V:FindFirstChild("Money") then
+						R.BankV = V.Money.CFrame;
+						S.BankAdded = true
+					end
+				end
+			end
+		end;
+		for j, W in pairs(workspace.Trains:GetChildren()) do
+			if W.Name == "LocomotiveFront" then
+				if W:FindFirstChild("Model") then
+					if W.Model:FindFirstChild("Body") then
+						R.Train = W.Model.Body.CFrame * CFrame.new(0, 12 / 2 + 5, 0)
+						S.TrainAdded = true
+					end
+				end
+			elseif W.Name == "SteamEngine" then
+				if W:FindFirstChild("Model") then
+					if W:FindFirstChild("Train") then
+						if W.Model:FindFirstChild("MeshPart") then
+							R.Train = W.Model.Train.MeshPart.CFrame * CFrame.new(0, 12 / 2 + 5, 0)
+							S.TrainAdded = true
+						end
+					end
+				end
+			end
+		end;
+		if S.TrainAdded == false then
+			R.Train = nil
+		end;
+		if S.BankAdded == false then
+			R.BankV = nil
+		end
+	end
+end))
+local X = {
+	Version = 1,
+	Env = {
+		OKStat = Enum.PlaybackState.Playing,
+		Step = game:GetService("RunService").Stepped,
+		Running = false
+	}
+}
+function X:Fire(Y, Z)
+	if not X.Env.Running then
+		if game:GetService("Players").LocalPlayer.Character ~= nil then
+			if game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+				X.Env.Running = true;
+				workspace.Camera.CameraType = Enum.CameraType.Scriptable;
+				local _ = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+				local a0 = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid")
+				X.TeleportClipBypass = X.Env.Step:Connect(function()
+					a0.PlatformStand = true;
+					for j, z in pairs(a0.Parent:GetDescendants()) do
+						if z:IsA("BasePart") then
+							z.CanCollide = false
+						end
+					end
+				end)
+				_G.TPC = true;
+				local a1 = CFrame.new(_.CFrame.X, Y.Y, _.CFrame.Z)
+				local a2 = game:GetService("Players").LocalPlayer:DistanceFromCharacter(a1.p)
+				local a3 = game.TweenService:Create(_, TweenInfo.new(a2 / Z, 0, 0, 0, false, 0), {
+					CFrame = a1
+				})
+				a3:Play()
+				repeat
+					wait()
+				until a3.PlaybackState ~= X.Env.OKStat or _ == nil or a0.Health == 0;
+				local a1 = CFrame.new(Y.X, _.CFrame.Y, _.CFrame.Z)
+				local a2 = game:GetService("Players").LocalPlayer:DistanceFromCharacter(a1.p)
+				local a3 = game.TweenService:Create(_, TweenInfo.new(a2 / Z, 0, 0, 0, false, 0), {
+					CFrame = a1
+				})
+				a3:Play()
+				repeat
+					wait()
+				until a3.PlaybackState ~= X.Env.OKStat or _ == nil or a0.Health == 0;
+				local a1 = CFrame.new(_.CFrame.X, _.CFrame.Y, Y.Z)
+				local a2 = game:GetService("Players").LocalPlayer:DistanceFromCharacter(a1.p)
+				local a3 = game.TweenService:Create(_, TweenInfo.new(a2 / Z, 0, 0, 0, false, 0), {
+					CFrame = a1
+				})
+				a3:Play()
+				repeat
+					wait()
+				until a3.PlaybackState ~= X.Env.OKStat or _ == nil or a0.Health == 0;
+				X.TeleportClipBypass:Disconnect()
+				X.TeleportClipBypass = nil;
+				_G.TPC = false;
+				workspace.Camera.CameraType = Enum.CameraType.Custom;
+				a0.PlatformStand = false;
+				X.Env.Running = false
+			end
+		end
+	end
+end;
+local a4 = a:CreateWindow("Teleport")
+a4:Button("Jewelry Store Top", function()
+	X:Fire(R.Jewl, 94)
+end)
+a4:Button("Jewelry Store Bottom", function()
+	X:Fire(R.Jewlrob, 94)
+end)
+a4:Button("Museum", function()
+	X:Fire(R.Museum, 94)
+end)
+a4:Button("Bank", function()
+	X:Fire(R.Bank, 94)
+end)
+a4:Button("Bank Vault", function()
+	X:Fire(R.BankV, 94)
+end)
+a4:Button("Train", function()
+	X:Fire(R.Train, 94)
+end)
+a4:Button("Power Plant", function()
+	X:Fire(R.PowerPlant, 94)
+end)
+a4:Button("Jetpack", function()
+	X:Fire(R.Jetpack, 94)
+end)
+a4:Button("Volcano Base Top", function()
+	X:Fire(R.VolcanoBaseTop, 94)
+end)
+a4:Button("Volcano Base Bottom", function()
+	X:Fire(R.VolcanoBaseBottom, 94)
+end)
+a4:Button("Criminal Base", function()
+	X:Fire(R.CrimBase, 94)
+end)
+a4:Button("Prison Yard", function()
+	X:Fire(R.Yard, 94)
+end)
+a4:Button("Helicopter One", function()
+	X:Fire(R.Helicopter1, 94)
+end)
+a4:Button("Helicopter Two", function()
+	X:Fire(R.Helicopter2, 94)
+end)
+a4:Button("Sell All", function()
+	X:Fire(R.Sell, 94)
+end)
+a4:Button("Control Tower", function()
+	X:Fire(R.ControlTower, 94)
+end)
+a4:Button("Cage", function()
+	X:Fire(R.Cage, 94)
+end)
+function FindPlayer(a5)
+	local a6 = string.lower(a5)
+	local a7 = string.len(a6)
+	for r, a8 in pairs(game:GetService("Players"):GetChildren()) do
+		local a9 = string.lower(a8.Name)
+		if a9:sub(1, a7) == a6:sub(1, a7) then
+			return a8, true
+		end
+	end;
+	return nil, false
+end;
+a4:Button("Teleport To Target", function()
+	local a8, aa = FindPlayer(TargetBox.Text)
+	if aa then
+		if a8.Character ~= nil and a8.Character:FindFirstChild("HumanoidRootPart") then
+			X:Fire(a8.Character.HumanoidRootPart.CFrame * CFrame.new(0, 5, 0), 94)
+		end
+	end
+end)
+local ab, TargetBox = a4:SearchBox("Target", {}, function()
+end)
+local ac = a:CreateWindow("Other")
+ac:Button("Remove Doors & Lasers", function()
+	for j, ad in pairs(workspace:GetDescendants()) do
+		if ad:IsA("BasePart") then
+			local ae = {}
+			ae.IsRemoved = false;
+			ae.BC = ad.BrickColor;
+			ae.BC_List = {
+				BrickColor.new("Persimmon"),
+				BrickColor.new("Dusty Rose"),
+				BrickColor.new("Terra Cotta")
+			}
+			if ad.Material == Enum.Material.Neon and ad.Name ~= "Building" then
+				for j, af in pairs(ae.BC_List) do
+					if ae.BC == af and ae.IsRemoved == false then
+						ae.IsRemoved = true;
+						ad:Remove()
+					end
+				end
+			end;
+			if ae.IsRemoved == false and ad.Name == "SewerHatch" then
+				ae.IsRemoved = true;
+				ad:Remove()
+			end
+		elseif ad:IsA("Model") then
+			local ae = {}
+			ae.IsRemoved = false;
+			if ad.Name == "SlideDoor" or ad.Name == "SwingDoor" or ad.Name == "Door" then
+				ae.IsRemoved = true;
+				ad:Remove()
+			end
+		end
+	end
+end)
+ac:Button("Fix Camera", function()
+	if workspace.CurrentCamera.CameraType ~= Enum.CameraType.Scriptable then
+		workspace.CurrentCamera.CameraSubject = d
+	end
+end)
+local ag = Instance.new("ScreenGui", game.CoreGui)
+ag.Name = game:GetService("HttpService"):GenerateGUID(false)
+local ah = {}
+ac:Toggle("ESP", {
+	flag = "ESP"
+})
+e:Connect(function()
+	for j, ai in pairs(ah) do
+		ai.Enabled = ac.flags.ESP
+	end
+end)
+for j, aj in pairs(game:GetService("Players"):GetPlayers()) do
+	coroutine.resume(coroutine.create(function()
+		if aj.Character ~= nil then
+			if aj.Character:FindFirstChild("Head") then
+				local ak = aj.Character.Head;
+				local al = Instance.new("BillboardGui", ag)
+				table.insert(ah, al)
+				al.Adornee = ak;
+				al.Size = UDim2.new(0, 700, 0, 40)
+				al.AlwaysOnTop = true;
+				al.Enabled = ac.flags.ESP;
+				al.StudsOffset = Vector3.new(0, 2, 0)
+				local am = Instance.new("TextLabel", al)
+				am.Size = UDim2.new(1, 0, 1, 0)
+				am.TextScaled = true;
+				al.Name = aj.Name;
+				am.Text = aj.Name;
+				am.Font = Enum.Font.ArialBold;
+				am.BackgroundTransparency = 1;
+				am.TextStrokeTransparency = 0;
+				am.TextColor3 = Color3.new(aj.TeamColor.r, aj.TeamColor.g, aj.TeamColor.b)
+				repeat
+					am.TextColor3 = Color3.new(aj.TeamColor.r, aj.TeamColor.g, aj.TeamColor.b)
+					wait()
+				until al.Adornee == nil;
+				al:Remove()
+			end
+		end
+	end))
+	aj.CharacterAdded:Connect(function(an)
+		wait(1.25)
+		local ak = an.Head;
+		local al = Instance.new("BillboardGui", ag)
+		table.insert(ah, al)
+		al.Adornee = ak;
+		al.Size = UDim2.new(0, 700, 0, 40)
+		al.AlwaysOnTop = true;
+		al.Enabled = ac.flags.ESP;
+		al.StudsOffset = Vector3.new(0, 2, 0)
+		local am = Instance.new("TextLabel", al)
+		am.Size = UDim2.new(1, 0, 1, 0)
+		am.TextScaled = true;
+		al.Name = aj.Name;
+		am.Text = aj.Name;
+		am.Font = Enum.Font.ArialBold;
+		am.BackgroundTransparency = 1;
+		am.TextStrokeTransparency = 0;
+		am.TextColor3 = Color3.new(aj.TeamColor.r, aj.TeamColor.g, aj.TeamColor.b)
+		repeat
+			am.TextColor3 = Color3.new(aj.TeamColor.r, aj.TeamColor.g, aj.TeamColor.b)
+			wait()
+		until al.Adornee == nil;
+		al:Remove()
+	end)
+end;
+game:GetService("Players").PlayerAdded:Connect(function(aj)
+	aj.CharacterAdded:Connect(function(an)
+		wait(1.25)
+		local ak = an.Head;
+		local al = Instance.new("BillboardGui", ag)
+		table.insert(ah, al)
+		al.Adornee = ak;
+		al.Size = UDim2.new(0, 700, 0, 40)
+		al.AlwaysOnTop = true;
+		al.Enabled = ac.flags.ESP;
+		al.StudsOffset = Vector3.new(0, 2, 0)
+		local am = Instance.new("TextLabel", al)
+		am.Size = UDim2.new(1, 0, 1, 0)
+		am.TextScaled = true;
+		al.Name = aj.Name;
+		am.Text = aj.Name;
+		am.Font = Enum.Font.ArialBold;
+		am.BackgroundTransparency = 1;
+		am.TextStrokeTransparency = 0;
+		am.TextColor3 = Color3.new(aj.TeamColor.r, aj.TeamColor.g, aj.TeamColor.b)
+		repeat
+			am.TextColor3 = Color3.new(aj.TeamColor.r, aj.TeamColor.g, aj.TeamColor.b)
+			wait()
+		until al.Adornee == nil;
+		al:Remove()
+	end)
+end)
+ac:Toggle("Inf Donuts", {
+	flag = "InfDonuts"
+})
+e:Connect(function()
+	if ac.flags.InfDonuts and c ~= nil then
+		game:GetService('Workspace').TouchTrigger.Donut.Position = c.Position
+	else
+		game:GetService('Workspace').TouchTrigger.Donut.Position = Vector3.new(264, 19.7678413, -1770.5)
+	end
+end)
+ac:Toggle("Auto Arrest & Eject", {
+	flag = "AutoAE"
+})
+local ao = game:GetService("Players").LocalPlayer.PlayerGui.MainGui.CircleAction;
+local ap = game:GetService('VirtualInputManager')
+coroutine.resume(coroutine.create(function()
+	while wait() do
+		if ao.Visible and ac.flags.AutoAE then
+			if ao.Help.Text == "Eject" or ao.Help.Text == "Arrest" then
+				if ao.Hold.Visible then
+					ap:SendKeyEvent(true, "E", false, game)
+					repeat
+						wait()
+					until ao.Visible == false or ao.OuterFull.Visible == true or ac.flags.AutoAE == false;
+					ap:SendKeyEvent(false, "E", false, game)
+				else
+					ap:SendKeyEvent(true, "E", false, game)
+					wait()
+					ap:SendKeyEvent(false, "E", false, game)
+				end
+			end
+		end
+	end
+end))
