@@ -98,11 +98,11 @@ local Window = Library.CreateLib("SpezZs", "BloodTheme")
     local LuckyBlockSection = GUIS:NewSection("LuckyBlock")
 
     LuckyBlockSection:NewButton("CornHub", "one of the best LuckyBlockScript By CornHub", function()
-        loadstring(game:HttpGet(('https://pastebin.com/raw/xkHKZrYA'),true))()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/modderongxmes/SpezZsMenu/main/CornHubLuckyBlock'),true))()
     end)
 
     local JailBreakSection = GUIS:NewSection("JailBreak")
 
     JailBreakSection:NewButton("JailBreak", "a good JailBreak script", function()
-        loadstring(game:HttpGet(('https://pastebin.com/raw/LbR3vWpg'),true))()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/modderongxmes/SpezZsMenu/main/JailBreakScript'),true))()
     end)
