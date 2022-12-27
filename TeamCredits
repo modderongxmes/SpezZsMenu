@@ -1,0 +1,13 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("SpezZsCREATORS", "BloodTheme")
+    -- CREATORS
+    local CREATORS = Window:NewTab("CREATORS")
+    local CREATORSSection = CREATORS:NewSection("CREATORS")
+
+    CREATORSSection:NewButton("stikbig", "team : stikbig : modderongames : team", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/modderongxmes/SpezZsMenu/main/stttt'),true))()
+    end)
+
+    CREATORSSection:NewButton("modderongames", "team : stikbig : modderongames : team", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/modderongxmes/SpezZsMenu/main/sttt2'),true))()
+    end)
