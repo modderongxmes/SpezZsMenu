@@ -1,0 +1,432 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "SpezZs Arsenal ♦",
+   LoadingTitle = "SpezZs DEV Free",
+   LoadingSubtitle = "by Ayst0",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "SpezZsFreeMenuDevIDWork"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "VHavPQdvVF", -- The Discord invite code, do not include discord would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "SpezZs Key",
+      Subtitle = "JOIN DISCORD FOR KEY",
+      Note = "the key is located in spezZs",
+      FileName = "SpezZsMenuFree", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://pastebin.com/raw/U2yawUJe"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("MAIN ♦", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+Rayfield:Notify({
+   Title = "You executed the script",
+   Content = "Have fun!!! Using SpezZsFree",
+   Duration = 5,
+   Image = 13047715178,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Infinite Jump Toggle",
+   Callback = function()
+       --Toggles the infinite jump between on or off on every script run
+_G.infinjump = not _G.infinjump
+
+if _G.infinJumpStarted == nil then
+	--Ensures this only runs once to save resources
+	_G.infinJumpStarted = true
+	
+	--Notifies readiness
+	game.StarterGui:SetCore("SendNotification", {Title="SpezZs Hub"; Text="Infinite Jump Activated!"; Duration=5;})
+
+	--The actual infinite jump
+	local plr = game:GetService('Players').LocalPlayer
+	local m = plr:GetMouse()
+	m.KeyDown:connect(function(k)
+		if _G.infinjump then
+			if k:byte() == 32 then
+			humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+			humanoid:ChangeState('Jumping')
+			wait()
+			humanoid:ChangeState('Seated')
+			end
+		end
+	end)
+end
+   end,
+})
+
+local Slider = MainTab:CreateSlider({
+   Name = "WalkSpeed Slider",
+   Range = {1, 350},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "sliderws", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
+
+local Slider = MainTab:CreateSlider({
+   Name = "JumpPower Slider",
+   Range = {1, 350},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "sliderjp", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
+   end,
+})
+
+local Input = MainTab:CreateInput({
+   Name = "Walkspeed",
+   PlaceholderText = "1-500",
+   RemoveTextAfterFocusLost = true,
+   Callback = function(Text)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Text)
+   end,
+})
+
+local OtherSection = MainTab:CreateSection("Other")
+
+local Button69 = MainTab:CreateButton({
+   Name = "hitbox",
+   Callback = function()
+       --gives you all items in the map
+	
+	--Notifies readiness
+	game.StarterGui:SetCore("SendNotification", {Title="SpezZs GUI"; Text="GET ALL ITEMS ACTIVE!"; Duration=5;})
+
+	--The actual get all
+for _,v in pairs(game.Players:GetPlayers()) do
+    v.Character.RightUpperLeg.CanCollide = false
+    v.Character.RightUpperLeg.Transparency = 0
+    v.Character.RightUpperLeg.Size = Vector3.new(20,20,20)
+  
+    v.Character.LeftUpperLeg.CanCollide = false
+    v.Character.LeftUpperLeg.Transparency = 0
+    v.Character.LeftUpperLeg.Size = Vector3.new(20,20,20)
+  
+    v.Character.HeadHB.CanCollide = false
+    v.Character.HeadHB.Transparency = 0
+    v.Character.HeadHB.Size = Vector3.new(20,20,20)
+  
+    v.Character.HumanoidRootPart.CanCollide = false
+    v.Character.HumanoidRootPart.Transparency = 0
+    v.Character.HumanoidRootPart.Size = Vector3.new(20,20,20)
+end
+   end,
+})
+
+local Button69 = MainTab:CreateButton({
+   Name = "silent aim",
+   Callback = function()
+       --gives you all items in the map
+	
+	--Notifies readiness
+	game.StarterGui:SetCore("SendNotification", {Title="SpezZs GUI"; Text="STEAL MONEY ACTIVE!"; Duration=5;})
+
+	--The actual get all
+        local function checkIfSameTeam(xvx)
+            
+            local hitboxSize = xvx.Character.HeadHB.Size
+            local hitboxSize2 = xvx.Character.RightUpperLeg.Size
+            local hitboxSize3 = xvx.Character.LeftUpperLeg.Size
+            local hitboxSize4 = xvx.Character.HumanoidRootPart.Size
+            
+            if xvx.Team.Name == plr.Team.Name then
+                return true
+            else
+                return false
+            end
+        end
+
+        if val4 then
+            connection1 = runService.Heartbeat:Connect(function()
+                for _,v in pairs(plrs:GetPlayers()) do
+                    if not checkIfSameTeam(v) then
+                        if v and v.Name ~= plr.Name and v.Character and v.Character.Humanoid.Health ~= 0 and v.Team.Name ~= plr.Team.Name and v.Character.HeadHB then
+                                v.Character.RightUpperLeg.CanCollide = false
+                                v.Character.RightUpperLeg.Transparency = 0
+                                v.Character.RightUpperLeg.Size = Vector3.new(20,20,20)
+
+                                v.Character.LeftUpperLeg.CanCollide = false
+                                v.Character.LeftUpperLeg.Transparency = 0
+                                v.Character.LeftUpperLeg.Size = Vector3.new(20,20,20)
+
+                                v.Character.HeadHB.CanCollide = false
+                                v.Character.HeadHB.Transparency = 0
+                                v.Character.HeadHB.Size = Vector3.new(20,20,20)
+
+                                v.Character.HumanoidRootPart.CanCollide = false
+                                v.Character.HumanoidRootPart.Transparency = 0
+                                v.Character.HumanoidRootPart.Size = Vector3.new(20,20,20)
+                        end
+                    else
+                        v.Character.HeadHB.Size = Vector3.new(1,1,1)
+                        v.Character.RightUpperLeg.Size = Vector3.new(1,1,1)
+                        v.Character.LeftUpperLeg.Size = Vector3.new(1,1,1)
+                        v.Character.HumanoidRootPart.Size = Vector3.new(1,1,1)
+                    end
+                end
+            end)
+        else
+            connection1:Disconnect()
+            for _,v in pairs(plrs:GetPlayers()) do
+                v.Character.HeadHB.Size = originalHeadHitboxSize
+                v.Character.RightUpperLeg.Size = originalRightUpperLegSize
+                v.Character.LeftUpperLeg.Size = originalLeftUpperLegSize
+                v.Character.HumanoidRootPart.Size = originalHumanoidRootPartSize
+            end
+    end
+   end,
+})
+
+local TPTab = Window:CreateTab("😪 Credits", nil) -- Title, Image
+
+local Button1 = TPTab:CreateButton({
+   Name = "DEV Ayst0",
+   Callback = function()
+        --Teleport1
+   end,
+})
+
+local Button2 = TPTab:CreateButton({
+   Name = "discord bellow",
+   Callback = function()
+        --Teleport2
+   end,
+})
+
+local Button3 = TPTab:CreateButton({
+   Name = "https://discord.gg/VHavPQdvVF",
+   Callback = function()
+        --Teleport3
+   end,
+})
+
+local TPTab = Window:CreateTab("👻 esp", nil) -- Title, Image
+
+local Button1 = TPTab:CreateButton({
+   Name = "ESP",
+   Callback = function()
+            	--Notifies readiness
+	game.StarterGui:SetCore("SendNotification", {Title="SpezZs GUI"; Text="ESP ACTIVE!"; Duration=5;})
+            --activation
+local function API_Check()
+    if Drawing == nil then
+        return "No"
+    else
+        return "Yes"
+    end
+end
+
+local Find_Required = API_Check()
+
+if Find_Required == "No" then
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+        Title = "Exunys Developer";
+        Text = "ESP script could not be loaded because your exploit is unsupported.";
+        Duration = math.huge;
+        Button1 = "OK"
+    })
+
+    return
+end
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local Camera = workspace.CurrentCamera
+
+local Typing = false
+
+_G.SendNotifications = true   -- If set to true then the script would notify you frequently on any changes applied and when loaded / errored. (If a game can detect this, it is recommended to set it to false)
+_G.DefaultSettings = false   -- If set to true then the ESP script would run with default settings regardless of any changes you made.
+
+_G.TeamCheck = false   -- If set to true then the script would create ESP only for the enemy team members.
+
+_G.ESPVisible = true   -- If set to true then the ESP will be visible and vice versa.
+_G.TextColor = Color3.fromRGB(255, 80, 10)   -- The color that the boxes would appear as.
+_G.TextSize = 14   -- The size of the text.
+_G.Center = true   -- If set to true then the script would be located at the center of the label.
+_G.Outline = true   -- If set to true then the text would have an outline.
+_G.OutlineColor = Color3.fromRGB(0, 0, 0)   -- The outline color of the text.
+_G.TextTransparency = 0.7   -- The transparency of the text.
+_G.TextFont = Drawing.Fonts.UI   -- The font of the text. (UI, System, Plex, Monospace) 
+
+_G.DisableKey = Enum.KeyCode.Q   -- The key that disables / enables the ESP.
+
+local function CreateESP()
+    for _, v in next, Players:GetPlayers() do
+        if v.Name ~= Players.LocalPlayer.Name then
+            local ESP = Drawing.new("Text")
+
+            RunService.RenderStepped:Connect(function()
+                if workspace:FindFirstChild(v.Name) ~= nil and workspace[v.Name]:FindFirstChild("HumanoidRootPart") ~= nil then
+                    local Vector, OnScreen = Camera:WorldToViewportPoint(workspace[v.Name]:WaitForChild("Head", math.huge).Position)
+
+                    ESP.Size = _G.TextSize
+                    ESP.Center = _G.Center
+                    ESP.Outline = _G.Outline
+                    ESP.OutlineColor = _G.OutlineColor
+                    ESP.Color = _G.TextColor
+                    ESP.Transparency = _G.TextTransparency
+                    ESP.Font = _G.TextFont
+
+                    if OnScreen == true then
+                        local Part1 = workspace:WaitForChild(v.Name, math.huge):WaitForChild("HumanoidRootPart", math.huge).Position
+                        local Part2 = workspace:WaitForChild(Players.LocalPlayer.Name, math.huge):WaitForChild("HumanoidRootPart", math.huge).Position or 0
+                        local Dist = (Part1 - Part2).Magnitude
+                        ESP.Position = Vector2.new(Vector.X, Vector.Y - 25)
+                        ESP.Text = ("("..tostring(math.floor(tonumber(Dist)))..") "..v.Name.." ["..workspace[v.Name].Humanoid.Health.."]")
+                        if _G.TeamCheck == true then 
+                            if Players.LocalPlayer.Team ~= v.Team then
+                                ESP.Visible = _G.ESPVisible
+                            else
+                                ESP.Visible = false
+                            end
+                        else
+                            ESP.Visible = _G.ESPVisible
+                        end
+                    else
+                        ESP.Visible = false
+                    end
+                else
+                    ESP.Visible = false
+                end
+            end)
+
+            Players.PlayerRemoving:Connect(function()
+                ESP.Visible = false
+            end)
+        end
+    end
+
+    Players.PlayerAdded:Connect(function(Player)
+        Player.CharacterAdded:Connect(function(v)
+            if v.Name ~= Players.LocalPlayer.Name then 
+                local ESP = Drawing.new("Text")
+    
+                RunService.RenderStepped:Connect(function()
+                    if workspace:FindFirstChild(v.Name) ~= nil and workspace[v.Name]:FindFirstChild("HumanoidRootPart") ~= nil then
+                        local Vector, OnScreen = Camera:WorldToViewportPoint(workspace[v.Name]:WaitForChild("Head", math.huge).Position)
+    
+                        ESP.Size = _G.TextSize
+                        ESP.Center = _G.Center
+                        ESP.Outline = _G.Outline
+                        ESP.OutlineColor = _G.OutlineColor
+                        ESP.Color = _G.TextColor
+                        ESP.Transparency = _G.TextTransparency
+    
+                        if OnScreen == true then
+                            local Part1 = workspace:WaitForChild(v.Name, math.huge):WaitForChild("HumanoidRootPart", math.huge).Position
+                        local Part2 = workspace:WaitForChild(Players.LocalPlayer.Name, math.huge):WaitForChild("HumanoidRootPart", math.huge).Position or 0
+                            local Dist = (Part1 - Part2).Magnitude
+                            ESP.Position = Vector2.new(Vector.X, Vector.Y - 25)
+                            ESP.Text = ("("..tostring(math.floor(tonumber(Dist)))..") "..v.Name.." ["..workspace[v.Name].Humanoid.Health.."]")
+                            if _G.TeamCheck == true then 
+                                if Players.LocalPlayer.Team ~= Player.Team then
+                                    ESP.Visible = _G.ESPVisible
+                                else
+                                    ESP.Visible = false
+                                end
+                            else
+                                ESP.Visible = _G.ESPVisible
+                            end
+                        else
+                            ESP.Visible = false
+                        end
+                    else
+                        ESP.Visible = false
+                    end
+                end)
+    
+                Players.PlayerRemoving:Connect(function()
+                    ESP.Visible = false
+                end)
+            end
+        end)
+    end)
+end
+
+if _G.DefaultSettings == true then
+    _G.TeamCheck = false
+    _G.ESPVisible = true
+    _G.TextColor = Color3.fromRGB(40, 90, 255)
+    _G.TextSize = 14
+    _G.Center = true
+    _G.Outline = false
+    _G.OutlineColor = Color3.fromRGB(0, 0, 0)
+    _G.DisableKey = Enum.KeyCode.Q
+    _G.TextTransparency = 0.75
+end
+
+UserInputService.TextBoxFocused:Connect(function()
+    Typing = true
+end)
+
+UserInputService.TextBoxFocusReleased:Connect(function()
+    Typing = false
+end)
+
+UserInputService.InputBegan:Connect(function(Input)
+    if Input.KeyCode == _G.DisableKey and Typing == false then
+        _G.ESPVisible = not _G.ESPVisible
+        
+        if _G.SendNotifications == true then
+            game:GetService("StarterGui"):SetCore("SendNotification",{
+                Title = "Exunys Developer";
+                Text = "The ESP's visibility is now set to "..tostring(_G.ESPVisible)..".";
+                Duration = 5;
+            })
+        end
+    end
+end)
+
+local Success, Errored = pcall(function()
+    CreateESP()
+end)
+
+if Success and not Errored then
+    if _G.SendNotifications == true then
+        game:GetService("StarterGui"):SetCore("SendNotification",{
+            Title = "Exunys Developer";
+            Text = "ESP script has successfully loaded.";
+            Duration = 5;
+        })
+    end
+elseif Errored and not Success then
+    if _G.SendNotifications == true then
+        game:GetService("StarterGui"):SetCore("SendNotification",{
+            Title = "Exunys Developer";
+            Text = "ESP script has errored while loading, please check the developer console! (F9)";
+            Duration = 5;
+        })
+    end
+    TestService:Message("The ESP script has errored, please notify Exunys with the following information :")
+    warn(Errored)
+    print("!! IF THE ERROR IS A FALSE POSITIVE (says that a player cannot be found) THEN DO NOT BOTHER !!")
+end
+   end,
+})
